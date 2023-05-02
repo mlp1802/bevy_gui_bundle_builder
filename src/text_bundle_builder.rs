@@ -1,37 +1,10 @@
 use crate::style_bundle_builder::StyleBuilder;
 use bevy::prelude::*;
 
-pub struct TextStyleBuilder {
-    text_style: TextStyle,
-}
-impl TextStyleBuilder {
-    pub fn new() -> TextStyleBuilder {
-        TextStyleBuilder {
-            text_style: TextStyle::default(),
-        }
-    }
-
-    pub fn font(mut self, font: Handle<Font>) -> Self {
-        self.text_style.font = font;
-        self
-    }
-    pub fn font_size(mut self, font_size: f32) -> Self {
-        self.text_style.font_size = font_size;
-        self
-    }
-
-    pub fn color(mut self, color: Color) -> Self {
-        self.text_style.color = color;
-        self
-    }
-    pub fn text_style(self) -> TextStyle {
-        self.text_style
-    }
-}
-
 pub struct TextBuilder {
     pub text: Text,
 }
+
 impl TextBuilder {
     pub fn new() -> TextBuilder {
         TextBuilder {
