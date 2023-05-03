@@ -29,8 +29,7 @@ impl TextBuilder {
 pub struct TextBundleBuilder {
     bundle: TextBundle,
     style_builder: StyleBuilder,
-    // text_style_builder: TextStyleBuilder,
-    pub text_builder: TextBuilder,
+    text_builder: TextBuilder,
 }
 
 impl TextBundleBuilder {
@@ -75,7 +74,7 @@ impl TextBundleBuilder {
         self
     }
 
-    pub fn bundle(self) -> TextBundle {
+    pub fn text_bundle(self) -> TextBundle {
         let mut node_bundle = self.bundle.clone();
         node_bundle.style = self.style_builder.style.clone();
         node_bundle.text = self.text_builder.text;

@@ -34,7 +34,7 @@ impl NodeBundleBuilder {
         self.bundle.z_index = ZIndex::Global(z);
         self
     }
-    pub fn bundle(&self) -> NodeBundle {
+    pub fn node_bundle(&self) -> NodeBundle {
         let mut node_bundle = self.bundle.clone();
         node_bundle.style = self.style_builder.style.clone();
         node_bundle

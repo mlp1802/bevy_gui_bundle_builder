@@ -1,6 +1,9 @@
 use bevy::prelude::*;
 
-use crate::{button_bundle_builder::ButtonBundleBuilder, node_bundle_builder::NodeBundleBuilder};
+use crate::{
+    button_bundle_builder::ButtonBundleBuilder, node_bundle_builder::NodeBundleBuilder,
+    prelude::TextBundleBuilder,
+};
 
 #[derive(Clone)]
 pub struct StyleBuilder {
@@ -15,12 +18,15 @@ impl StyleBuilder {
     pub fn node_builder(self) -> NodeBundleBuilder {
         NodeBundleBuilder::new(self)
     }
+    pub fn text_builder(self) -> TextBundleBuilder {
+        TextBundleBuilder::new(self)
+    }
     pub fn button_builder(self) -> ButtonBundleBuilder {
         ButtonBundleBuilder::new(self)
     }
 
     pub fn node_bundle(self) -> NodeBundle {
-        self.node_builder().bundle()
+        self.node_builder().node_bundle()
     }
 
     pub fn button_bundle(self) -> ButtonBundle {
