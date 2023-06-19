@@ -32,15 +32,41 @@ impl StyleBuilder {
     pub fn button_bundle(self) -> ButtonBundle {
         self.button_builder().bundle()
     }
-
-    pub fn height_2(mut self, h: Val) -> StyleBuilder {
-        self.style.size.height = h;
+    pub fn min_height_pct(mut self, pct: f32) -> StyleBuilder {
+        self.style.min_size.height = Val::Percent(pct);
+        self
+    }
+    pub fn min_width_pct(mut self, pct: f32) -> StyleBuilder {
+        self.style.min_size.width = Val::Percent(pct);
+        self
+    }
+    pub fn max_size(mut self, size: Size) -> StyleBuilder {
+        self.style.max_size = size;
+        self
+    }
+    pub fn max_width_pct(mut self, pct: f32) -> StyleBuilder {
+        self.style.max_size.width = Val::Percent(pct);
+        self
+    }
+    pub fn overflow_hidden(mut self) -> StyleBuilder {
+        self.style.overflow = Overflow::Hidden;
         self
     }
 
     pub fn display(mut self, d: Display) -> StyleBuilder {
         self.style.display = d;
         self
+    }
+    pub fn position_type(mut self, p: PositionType) -> StyleBuilder {
+        self.style.position_type = p;
+        self
+    }
+    pub fn position_type_absolute(self) -> StyleBuilder {
+        self.position_type(PositionType::Absolute)
+    }
+
+    pub fn position_type_relative(self) -> StyleBuilder {
+        self.position_type(PositionType::Relative)
     }
 
     pub fn position(mut self, p: UiRect) -> StyleBuilder {
@@ -49,6 +75,15 @@ impl StyleBuilder {
     }
     pub fn position_left(mut self, l: Val) -> StyleBuilder {
         self.style.position.left = l;
+        self
+    }
+    pub fn position_right(mut self, l: Val) -> StyleBuilder {
+        self.style.position.right = l;
+        self
+    }
+
+    pub fn position_bottom(mut self, l: Val) -> StyleBuilder {
+        self.style.position.bottom = l;
         self
     }
 
