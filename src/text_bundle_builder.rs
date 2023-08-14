@@ -75,7 +75,7 @@ impl TextBundleBuilder {
     }
 
     pub fn text_bundle(self) -> TextBundle {
-        let mut node_bundle = self.bundle.clone();
+        let mut node_bundle = self.bundle;
         node_bundle.style = self.style_builder.style.clone();
         node_bundle.text = self.text_builder.text;
         node_bundle

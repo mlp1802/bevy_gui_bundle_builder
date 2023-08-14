@@ -33,23 +33,19 @@ impl StyleBuilder {
         self.button_builder().bundle()
     }
     pub fn min_height_pct(mut self, pct: f32) -> StyleBuilder {
-        self.style.min_size.height = Val::Percent(pct);
+        self.style.min_height = Val::Percent(pct);
         self
     }
     pub fn min_width_pct(mut self, pct: f32) -> StyleBuilder {
-        self.style.min_size.width = Val::Percent(pct);
-        self
-    }
-    pub fn max_size(mut self, size: Size) -> StyleBuilder {
-        self.style.max_size = size;
+        self.style.min_width = Val::Percent(pct);
         self
     }
     pub fn max_width_pct(mut self, pct: f32) -> StyleBuilder {
-        self.style.max_size.width = Val::Percent(pct);
+        self.style.max_width = Val::Percent(pct);
         self
     }
     pub fn overflow_hidden(mut self) -> StyleBuilder {
-        self.style.overflow = Overflow::Hidden;
+        //self.style.overflow = Overflow::;
         self
     }
 
@@ -69,40 +65,40 @@ impl StyleBuilder {
         self.position_type(PositionType::Relative)
     }
 
-    pub fn position(mut self, p: UiRect) -> StyleBuilder {
-        self.style.position = p;
-        self
-    }
+    //    pub fn position(mut self, p: UiRect) -> StyleBuilder {
+    //        self.style.position = p;
+    //        self
+    //    }
     pub fn position_left(mut self, l: Val) -> StyleBuilder {
-        self.style.position.left = l;
+        self.style.left = l;
         self
     }
     pub fn position_right(mut self, l: Val) -> StyleBuilder {
-        self.style.position.right = l;
+        self.style.right = l;
         self
     }
 
     pub fn position_bottom(mut self, l: Val) -> StyleBuilder {
-        self.style.position.bottom = l;
+        self.style.bottom = l;
         self
     }
 
     pub fn position_top(mut self, l: Val) -> StyleBuilder {
-        self.style.position.top = l;
+        self.style.top = l;
         self
     }
 
     pub fn width(mut self, w: Val) -> StyleBuilder {
-        self.style.size.width = w;
+        self.style.width = w;
         self
     }
 
     pub fn width_pct(mut self, w: f32) -> StyleBuilder {
-        self.style.size.width = Val::Percent(w);
+        self.style.width = Val::Percent(w);
         self
     }
     pub fn width_px(mut self, w: f32) -> StyleBuilder {
-        self.style.size.width = Val::Px(w);
+        self.style.width = Val::Px(w);
         self
     }
     pub fn size_px(self, x: f32, y: f32) -> StyleBuilder {
@@ -110,17 +106,17 @@ impl StyleBuilder {
     }
 
     pub fn height(mut self, h: Val) -> StyleBuilder {
-        self.style.size.height = h;
+        self.style.height = h;
         self
     }
 
     pub fn height_pct(mut self, h: f32) -> StyleBuilder {
-        self.style.size.height = Val::Percent(h);
+        self.style.height = Val::Percent(h);
         self
     }
 
     pub fn height_px(mut self, h: f32) -> StyleBuilder {
-        self.style.size.height = Val::Px(h);
+        self.style.height = Val::Px(h);
         self
     }
 
